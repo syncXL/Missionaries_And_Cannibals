@@ -1,4 +1,9 @@
+import numpy as np
 def returnComb(cap,*pop_entity):
+    """
+        cap : capacity of the boat
+        pop_entity(list): contains list of entitiess
+    """
     max_len = len(pop_entity)
     theEdges = [list(range(0,pop_entity[i]+1)) for i in range(max_len)]
     routes = [[i] for i in theEdges[0]]
@@ -14,9 +19,10 @@ def returnComb(cap,*pop_entity):
                 newRoute = chosenRoute.copy()
                 newRoute.append(edge)
                 routes.append(newRoute)
-    return paths
+    return np.array(paths)
 
-pathS = returnComb(4,5,5,5,5)
-for i,action in enumerate(pathS):
-    print(f"{i}: {action}")
+# pathS = returnComb(2,3,3)
+# for i,action in enumerate(pathS):
+#     print(f"{i}: {action}")
 
+# print(np.argmin(np.array([2,2])))
